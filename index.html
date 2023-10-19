@@ -1,0 +1,66 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <input v-model="a" type="number">
+            <b>
+                <p>Square: {{ calculateSquare() }}</p>
+            </b>
+            <div id="vue_det">
+                <img v-bind:src="imgsrc" alt="Image">
+                <p><a id="google-link" v-bind:href="hreflink">G<span>oogle</span></a></p>
+            </div>
+        </div>
+        <div id="databinding">
+            <h3>Radio</h3>
+            <input type="radio" id="black" value="Black" v-model="picked">Black
+            <input type="radio" id="white" value="White" v-model="picked">White
+            <h3>Radio element clicked : {{ picked }}</h3>
+            <hr />
+            <h3>Select</h3>
+            <select v-model="languages">
+                <option disabled value="">Please select one</option>
+                <option>Java</option>
+                <option>Javascript</option>
+                <option>Php</option>
+                <option>C</option>
+                <option>C++</option>
+            </select>
+            <h3>Languages Selected is : {{ languages }}</h3>
+            <hr />
+        </div>
+        <script>
+            var vm = new Vue({
+                el: "#app",
+                data: {
+                    a: 7,
+                    hreflink: "http://www.google.com",
+                    imgsrc: "img/image.jpg"
+                },
+                methods: {
+                    calculateSquare: function () {
+                        return this.a * this.a;
+                    }
+                }
+            });
+
+            new Vue({
+                el: "#databinding",
+                data: {
+                    picked: "Black",
+                    languages: ""
+                }
+            });
+        </script>
+    </body>
+
+    </html>

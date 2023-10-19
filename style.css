@@ -1,0 +1,83 @@
+/* Общий стиль для всей страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стиль для элемента с id "app" */
+#app {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Стиль для input и p внутри элемента #app */
+#app input,
+#app p {
+    margin: 10px 0;
+}
+
+/* Стиль для жирного текста внутри элемента #app */
+#app b {
+    font-weight: bold;
+}
+
+/* Стиль для элемента с id "vue_det" */
+#vue_det {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Стиль для изображения внутри #vue_det */
+#vue_det img {
+    max-width: 100%;
+    border: 1px solid #ccc;
+}
+
+/* Стиль для ссылки внутри #vue_det */
+#vue_det a {
+    text-decoration: none;
+    color: #0074cc;
+}
+
+/* Стиль для спана внутри ссылки */
+#vue_det span {
+    font-weight: bold;
+}
+
+/* Стиль для радиокнопок */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Стиль для элемента hr */
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+/* Стиль для элемента select */
+select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Стиль для заголовка h3 */
+h3 {
+    color: #333;
+}
+
+/* Стиль для параграфа с id "google-link" */
+#google-link {
+    font-weight: bold;
+    text-decoration: underline;
+}
