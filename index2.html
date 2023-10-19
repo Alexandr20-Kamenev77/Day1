@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="center" id="app">
+        <div>
+            <input type="radio" v-model="filter" value="withAuthor"> Є автор
+            <input type="radio" v-model="filter" value="withoutAuthor"> Немає автора
+        </div>
+        <div class="quote" v-for="qt in filteredQuotes">
+            <h3 v-bind:class="qt.quote.length > 40 ? 'red' : 'black'">{{ qt.quote }}</h3>
+            <h5>{{ qt.source }}</h5>
+        </div>
+        <div class="button-container">
+            <button @click="sortQuotes">Сортувати</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var quotesArray = [
+        {
+            "quote": "This is just a Quote1",
+            "source": "Christopher"
+        },
+        {
+            "quote": "This is just a Quote2 This is just a Quote2 This is just a Quote2",
+            "source": "Martin"
+        },
+        {
+            "quote": "This is just a Quote3",
+            "source": "Dennis"
+        },
+        {
+            "quote": "This is just a Quote4",
+            "source": ""
+        }
+    ]
+
+    new Vue({
+        el: '#app',
+        data: {
+            qoutes: quotesArray,
+            filter: 'withAuthor'
+        },
+        computed: {
+            filteredQuotes: function() {
+                if (this.filter === 'withAuthor') {
+                    return this.qoutes.filter(qt => qt.source);
+                } else if (this.filter === 'withoutAuthor') {
+                    return this.qoutes.filter(qt => !qt.source);
+                } else {
+                    return this.qoutes;
+                }
+            }
+        },
+        methods: {
+            sortQuotes: function() {
+                this.qoutes.sort((a, b) => {
+                    if (a.source < b.source) return -1;
+                    if (a.source > b.source) return 1;
+                    return 0;
+                });
+            }
+        }
+    })
+</script>
+</html>
